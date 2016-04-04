@@ -13,6 +13,6 @@
     "include/glfw-shell.h"
   ],
   "dependencies": {
-    "glisy/gl": "0.0.1"
+    "glisy/gl": "master"
   }
 }
