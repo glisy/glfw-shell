@@ -20,7 +20,7 @@
  */
 
 #define GLFW_SHELL_WINDOW_INIT(window, width, height)                          \
-  GLFWwindow *window = glfwCreateWindow(width, height, "glfw-window", 0, 0);   \
+  window = glfwCreateWindow(width, height, "glfw-window", 0, 0);               \
   if (!window) { glfwTerminate(); exit(1); }                                   \
   glfwMakeContextCurrent(window);                                              \
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);                                        \
