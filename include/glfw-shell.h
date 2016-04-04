@@ -8,7 +8,7 @@
  * Initialize GLFW context with major and minor version.
  */
 
-#define GL_CONTEXT_INIT(major, minor)                                          \
+#define GLFW_SHELL_CONTEXT_INIT(major, minor)                                  \
   if (!glfwInit()) return 1;                                                   \
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);                         \
   glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);               \
@@ -19,7 +19,7 @@
  * Initialize window with width and height. Calls `cb` in render loop.
  */
 
-#define GL_RENDER(window, width, height, cb) {                                 \
+#define GLFW_SHELL_RENDER(window, width, height, cb) {                         \
   window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME, 0, 0);   \
   if (!window) { glfwTerminate(); exit(1); }                                   \
   glfwMakeContextCurrent(window);                                              \
