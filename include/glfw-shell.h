@@ -16,17 +16,23 @@
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, minor);                           \
 
 /**
- * Initialize window with width and height. Calls `cb` in render loop.
+ * Initializes GLFW window.
  */
 
-#define GLFW_SHELL_RENDER(window, width, height, cb) {                         \
-  window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_NAME, 0, 0);   \
+#define GLFW_SHELL_WINDOW_INIT(window, width, height)                          \
+  GLFWwindow *window = glfwCreateWindow(width, height, "glfw-window", 0, 0);   \
   if (!window) { glfwTerminate(); exit(1); }                                   \
   glfwMakeContextCurrent(window);                                              \
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);                                        \
   printf("OpenGL %s, GLSL %s\n",                                               \
          glGetString(GL_VERSION),                                              \
          glGetString(GL_SHADING_LANGUAGE_VERSION));                            \
+
+/**
+ * Initialize window with width and height. Calls `cb` in render loop.
+ */
+
+#define GLFW_SHELL_RENDER(window, cb) {                                        \
   while (!glfwWindowShouldClose(window)) {                                     \
     int width, height;                                                         \
     glfwGetFramebufferSize(window, &width, &height);                           \
